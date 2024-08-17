@@ -4,11 +4,15 @@ import './todocard.css'
 
 export default function TodoCard() {
   return (
-    <div className='todocard'>
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
+    <div className='container'>
+
+      <div className="heading">Todo List</div>
+
+      <div className='todocard'>
+        <TodoItem description = "study"/>
+      </div>
+
+      
     </div>
   )
 }

@@ -1,5 +1,5 @@
 .todoitem{
-    width: 93%;
+    width: 96%;
     margin: 4px;
     display: flex;
     justify-content: space-evenly;
@@ -15,6 +15,12 @@
     width: 85%;
 }
 .strikethrough{
-  color: red;
+    color: gray;
   text-decoration: line-through;
 }
+.checked{
+    opacity: 0.6;
+}
+.icon {
+    cursor: pointer;
+  }

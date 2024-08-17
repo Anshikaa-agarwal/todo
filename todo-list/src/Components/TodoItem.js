@@ -3,7 +3,7 @@ import './todoitem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export default function TodoItem() {
+export default function TodoItem(props) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheck = () => {
@@ -24,7 +24,7 @@ export default function TodoItem() {
         readOnly
       />
       <div className={`desc item ${isChecked ? 'strikethrough' : ''}`}>
-        Study
+        {props.description}
       </div>
       <div className="icon item" onClick={handleDelete}>
         <FontAwesomeIcon icon={faTrash} />
