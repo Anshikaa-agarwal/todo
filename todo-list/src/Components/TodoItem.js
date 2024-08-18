@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import './todoitem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit, faSave } from '@fortawesome/free-solid-svg-icons';
 
 export default function TodoItem(props) {
   const [isChecked, setIsChecked] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [newDescription, setNewDescription] = useState(props.description);
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
   };
 
-  const handleDelete = () => {
-    // Add delete functionality here
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    props.onEdit(newDescription);
+    setIsEditing(false);
   };
 
   return (
@@ -23,12 +30,34 @@ export default function TodoItem(props) {
         checked={isChecked}
         readOnly
       />
-      <div className={`desc item ${isChecked ? 'strikethrough' : ''}`}>
-        {props.description}
-      </div>
-      <div className="icon item" onClick={handleDelete}>
-        <FontAwesomeIcon icon={faTrash} />
-      </div>
+
+      {isEditing ? (
+        <input
+          type="text"
+          className="edit-input item"
+          value={newDescription}
+          onChange={(e) => setNewDescription(e.target.value)}
+        />
+      ) : (
+        <div className={`desc item ${isChecked ? 'strikethrough' : ''}`}>
+          {props.description}
+        </div>
+      )}
+
+      {isEditing ? (
+        <div className="icon item" onClick={handleSaveClick}>
+          <FontAwesomeIcon icon={faSave} />
+        </div>
+      ) : (
+        <>
+          <div className="icon item" onClick={handleEditClick}>
+            <FontAwesomeIcon icon={faEdit} />
+          </div>
+          <div className="icon item" onClick={props.onDelete}>
+            <FontAwesomeIcon icon={faTrash} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
