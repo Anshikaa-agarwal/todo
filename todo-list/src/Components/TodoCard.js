@@ -34,7 +34,7 @@ export default function TodoCard() {
   return (
     <div className='container'>
 
-      <div className="heading">Todo List</div>
+      <div className="heading"><h2>Todo List</h2></div>
 
       <Form handleOnSubmit = {handleOnSubmit}/>
 

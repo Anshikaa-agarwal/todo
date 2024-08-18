@@ -1,39 +1,50 @@
-.todoitem{
+.todoitem {
     width: 96%;
     margin: 4px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #D3D3D3;
     border-radius: 5px;
-    background-color: white;
+    background-color: #FFFFFF;
+    font-size: large;
 }
 
-.item{
+.item {
     padding: 8px;
+    color: #333333;
 }
 
-.desc, .edit-input { 
+.desc {
     width: 85%;
+    color: #333333; 
 }
 
-.strikethrough{
-    color: gray;
+.strikethrough {
+    color: #696969; 
     text-decoration: line-through;
 }
 
-.checked{
+.checked {
     opacity: 0.6;
 }
 
 .icon {
     cursor: pointer;
+    color: #333333
+}
+
+.icon:hover {
+    color: #444444; 
 }
 
 .edit-input {
+    width: 85%;
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #D3D3D3;
     border-radius: 4px;
     box-sizing: border-box;
+    color: #333333; 
+    background-color: #FFFFFF;
 }
